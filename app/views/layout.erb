@@ -20,15 +20,25 @@
 <body>
   <header>
     <img src="https://news.ycombinator.com/y18.gif">
+    <a class="logo" href="/">Handsom News</a>
+    <nav class="content">
+      <ul>
+        <li><a href="/posts/new">submit</li>
+      </ul>
+    </nav>
+    <nav class="user">
+      <ul>
+        <% unless session[:user] %>
+          <li><a href="/signup">Sign Up<a></li>
+          <li><a href="/login">Login<a></li>
+        <% else %>
+          <li><a href="/logout">Logout<a></li>
+        <% end %>
+      </ul>
+    </nav>
   </header>
-  <nav>
-      <% unless session[:user] %>
-        <a href="/signup">Sign Up<a>
-        <a href="/login">Login<a>
-      <% else %>
-        <a href="/logout">Logout<a>
-      <% end %>
-  </nav>
+  <div>
+  </div>
   <%= yield %>
 </body>
 </html>

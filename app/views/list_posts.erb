@@ -1,9 +1,10 @@
-<table>
+<table class="list_all_posts">
 <% @posts.each_with_index do |post, index| %>
 	<tr>
-		<td colspan="2"><%= index %></td>
-		<td><a href="<%= post.link_url %>"><%= post.title %></a></td>
-		<td><a href="/posts/<%= post.id %>/comments">comments</a></td>
+		<td class="index_col"><%= index + 1 %></td>
+		<td class="upvote_col"><a href="/posts/<%= post.id %>/vote?vote=up"><img src="https://news.ycombinator.com/grayarrow.gif"></a></td>
+		<td><a href="<%= post.link_url %>"><%= post.title %></a> <span class="url_view">(<%= post.link_url %>)</span><br>
+		<span class="posts_second_line_info"><a href="/posts/<%= post.id %>/comments">comments</a></span></td>
 	</tr>
 <% end %>
 </table>

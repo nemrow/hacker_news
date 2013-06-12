@@ -5,7 +5,7 @@ get '/posts/:post_id/comments' do
 end
 
 
-get '/posts/:post_id/vote'
+get '/posts/:post_id/vote' do
   value = params[:vote] == "up" ? 1 : -1
   @post = Post.find(params[:post_id])
   @post.add_or_update_vote(:value, current_user)
