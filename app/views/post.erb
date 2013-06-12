@@ -1,0 +1,16 @@
+<a href ="<%= @post.link_url %>"><%= @post.title %></a>
+<p>comment count: <%= @comments.count %></p>
+
+<form method="post" action="/post/<%= @post.id %>/comments/new">
+	<textarea name="text" placeholder="insert comment"></textarea>
+	<input type="add comment">
+</form>
+
+<table>
+<% @comments do |comment| %>
+	<tr>
+		<td><%= comment.user_id %></td>
+		<td><%= comment.text %></td>
+	</tr>
+<% end %>
+</table>

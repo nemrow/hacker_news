@@ -1,0 +1,8 @@
+<table>
+<% @posts.each_with_index do |post, index| %>
+	<tr>
+		<td colspan="2"><%= index %></td>
+		<td><%= post.title %></td>
+	</tr>
+<% end %>
+</table>
