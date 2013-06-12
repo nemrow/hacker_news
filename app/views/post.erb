@@ -1,16 +1,25 @@
-<a href ="<%= @post.link_url %>"><%= @post.title %></a>
-<p>comment count: <%= @comments.count %></p>
+<div class="container">
+	<div class="indi_post_table_view">
+		<table class="list_all_posts">
+			<tr>
+				<td class="upvote_col"><a href="/posts/<%= @post.id %>/vote?vote=up"><img src="https://news.ycombinator.com/grayarrow.gif"></a></td>
+				<td><a href="<%= @post.link_url %>"><%= @post.title %></a> <span class="url_view">(<%= @post.link_url %>)</span><br>
+				<span class="posts_second_line_info"><a href="/posts/<%= @post.id %>/comments">comments (<%= @post.comments.count %>)</a></span></td>
+			</tr>
+		</table>
+	</div>
 
-<form method="post" action="/post/<%= @post.id %>/comments/new">
-	<textarea name="text" placeholder="insert comment"></textarea>
-	<input type="submit" value="add comment">
-</form>
+	<form class="new_post_form" method="post" action="/post/<%= @post.id %>/comments/new">
+		<textarea name="text" placeholder="insert comment"></textarea><br>
+		<input type="submit" value="add comment">
+	</form>
 
-<table>
-<% @comments.each do |comment| %>
-	<tr>
-		<td><%= comment.user_id %></td>
-		<td><%= comment.text %></td>
-	</tr>
-<% end %>
-</table>
+	<table class="comments">
+	<% @comments.each do |comment| %>
+		<tr>
+			<td><%= comment.user.name %> | 3 hours ago<br>
+			<span><%= comment.text %></td>
+		</tr>
+	<% end %>
+	</table>
+</div>

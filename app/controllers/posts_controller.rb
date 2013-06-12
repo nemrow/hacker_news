@@ -33,6 +33,6 @@ get '/' do
   if session[:user]
     # redirect to ''
   end
-  @posts = Post.limit(30)
+  @posts = Post.by_votes
 	erb :list_posts
 end
