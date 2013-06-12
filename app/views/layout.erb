@@ -18,6 +18,14 @@
   <title></title>
 </head>
 <body>
+  <nav>
+    <% unless session[:user] %>
+      <a href="/signup">Sign Up<a>
+      <a href="/login">Login<a>
+    <% else %>
+      <a href="/logout">Logout<a>
+    <% end %>
+  </nav>
   <%= yield %>
 </body>
 </html>
