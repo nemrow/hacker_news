@@ -7,3 +7,23 @@
 th {
   text-align: left;
 }
+header{
+	width: 90%;
+	margin: 20px auto;
+	padding: 1px;
+	background-color: #ff6600;
+	line-height: 12px;
+}
+header img{
+	margin: 3px;
+	width:18px;
+	height: 18px;
+	border:1px #ffffff solid;
+	display: inline-block;
+}
+header nav{
+	display: inline-block;
+}
+header nav a{
+	margin: 0px;
+}

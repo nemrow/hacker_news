@@ -1,12 +1,5 @@
 enable :sessions
 
-get '/' do
-  if session[:user]
-    #place and logged in behaviour here
-  end
-  erb :index
-end
-
 get '/signup' do
   erb :signup
 end

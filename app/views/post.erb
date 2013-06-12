@@ -3,11 +3,11 @@
 
 <form method="post" action="/post/<%= @post.id %>/comments/new">
 	<textarea name="text" placeholder="insert comment"></textarea>
-	<input type="add comment">
+	<input type="submit" value="add comment">
 </form>
 
 <table>
-<% @comments do |comment| %>
+<% @comments.each do |comment| %>
 	<tr>
 		<td><%= comment.user_id %></td>
 		<td><%= comment.text %></td>

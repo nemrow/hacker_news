@@ -21,6 +21,9 @@ post '/posts/new' do
 end
 
 get '/' do
-	@posts = Post.limit(30)
+  if session[:user]
+    # redirect to ''
+  end
+  @posts = Post.limit(30)
 	erb :list_posts
 end

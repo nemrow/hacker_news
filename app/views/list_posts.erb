@@ -2,7 +2,8 @@
 <% @posts.each_with_index do |post, index| %>
 	<tr>
 		<td colspan="2"><%= index %></td>
-		<td><%= post.title %></td>
+		<td><a href="<%= post.link_url %>"><%= post.title %></a></td>
+		<td><a href="/posts/<%= post.id %>/comments">comments</a></td>
 	</tr>
 <% end %>
 </table>
