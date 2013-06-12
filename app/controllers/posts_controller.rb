@@ -4,6 +4,14 @@ get '/posts/:post_id/comments' do
 	erb :post
 end
 
+
+get '/posts/:post_id/vote'
+  value = params[:vote] == "up" ? 1 : -1
+  @post = Post.find(params[:post_id])
+  @post.add_or_update_vote(:value, current_user)
+  redirect to "/" 
+end
+
 get '/posts/new' do
 	erb :new_post
 end
