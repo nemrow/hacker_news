@@ -1,19 +1,20 @@
 get '/posts/:post_id/comments' do
 	@post = Post.find(params[:post_id])
 	@comments = @post.comments
+	erb :post
 end
 
-get '/posts/:post_id/new' do
-	
+get '/posts/new' do
+	erb :new_post
 end
 
-post '/posts/:post_id/new' do
+post '/posts/new' do
 	post = Post.new(	:title => params[:title],
 										:link_url => params[:link_url],
 										:user_id => current_user.id
 									)
 	if post.save
-		redirect to "/posts/#{params[:post]}/comments"
+		redirect to "/posts/#{post.id}/comments"
 	else
 		errors = {:errors => "stuff"}
 	end
