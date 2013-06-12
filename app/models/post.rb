@@ -9,8 +9,8 @@ class Post < ActiveRecord::Base
     order('votes desc')
 	end
 
-	def add_or_update_vote(value, user)
-		votes.find_or_create_by_user_id(value: value, user: user)
+	def add_or_update_vote(value, current_user)
+		votes.where(user_id: current_user.id).first_or_create(value: value)
 	end
 
 end
